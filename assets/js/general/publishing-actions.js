@@ -12,7 +12,7 @@
 		var $publishingAction = $('#publishing-action');
 
 		if ($publishingAction.length) {
-			$publishingAction.outerWidth($publishingContainer.width() + 2);
+			$publishingAction.outerWidth($publishingContainer.width());
 
 			if ($(window).scrollTop() > ($publishingContainer.offset().top +
 				$('#delete-action').height() - $('#wpadminbar').height())) {
