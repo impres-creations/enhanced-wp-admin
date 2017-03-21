@@ -1,0 +1,8 @@
+$white: #fff;
+$light-gray: #f5f5f5;
+$medium-gray: #dddddd;
+
+$success-color: #7db712;
+$success-color-light: lighten($success-color, 1%);
+$success-color-medium: darken($success-color, 7%);
+$success-color-dark: darken($success-color, 10%);
