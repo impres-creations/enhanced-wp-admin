@@ -17,13 +17,7 @@ define('ENHANCED_WP_ADMIN_VERSION', 0.1);
 define('ENHANCED_WP_ADMIN_ASSETS', plugin_dir_url(__FILE__) . 'dist/');
 define('ENHANCED_WP_ADMIN_RESOURCES', __DIR__ . '/resources/');
 
-require_once(ENHANCED_WP_ADMIN_RESOURCES . 'Init.php');
 
-require_once(ENHANCED_WP_ADMIN_RESOURCES . 'Comments.php');
-require_once(ENHANCED_WP_ADMIN_RESOURCES . 'Customizer.php');
-require_once(ENHANCED_WP_ADMIN_RESOURCES . 'Dashboard.php');
-require_once(ENHANCED_WP_ADMIN_RESOURCES . 'MetaBoxes.php');
-require_once(ENHANCED_WP_ADMIN_RESOURCES . 'Menu.php');
-require_once(ENHANCED_WP_ADMIN_RESOURCES . 'Styles.php');
+require_once __DIR__ . '/vendor/composer/autoload.php';
 
 new \EnhancedWPAdmin\Init();
