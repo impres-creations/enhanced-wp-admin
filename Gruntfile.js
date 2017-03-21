@@ -10,13 +10,6 @@ module.exports = function (grunt)
 			resources: 'resources'
 		},
 
-// 		githooks: {
-// 			all: {
-// 				// Will run the jshint csscomb and postcss:sass tasks at every commit
-// 				'pre-commit': 'jshint csscomb postcss:sass'
-// 			}
-// 		},
-
 		url: {
 			content: '/content',
 			themes: '<%= url.content %>/themes',
@@ -121,6 +114,18 @@ module.exports = function (grunt)
 				dest: "<%= dir.dist %>/css/style.min.css"
 			}
 		},
+		copy: {
+			main: {
+				files: [
+					{
+						expand: true,
+						cwd: '<%= dir.assets %>/images',
+						src: '**',
+						dest: '<%= dir.dist %>/images/'
+					}
+				]
+			}
+		},
 		watch: {
 			options: {
 				livereload: true
@@ -147,11 +152,11 @@ module.exports = function (grunt)
 	});
 
 	grunt.registerTask('default',
-		['csscomb', 'postcss:sass', 'sass', 'postcss:css', 'uglify', 'merge_media', 'watch']);
+		['csscomb', 'postcss:sass', 'sass', 'postcss:css', 'uglify', 'merge_media', 'copy', 'watch']);
 
 	grunt.registerTask('optimize', ['postcss:sass', 'uglify']);
 
-	grunt.registerTask('build', ['sass', 'postcss:css', 'merge_media', 'uglify']);
+	grunt.registerTask('build', ['sass', 'postcss:css', 'merge_media', 'uglify', 'copy']);
 
 	// Load all the npm tasks which starts with "grunt-"
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
