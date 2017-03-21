@@ -13,11 +13,12 @@ if (!defined('ABSPATH')) {
 	exit;
 } // Exit if accessed directly
 
+// Define multiple necessary constants
 define('ENHANCED_WP_ADMIN_VERSION', 0.1);
 define('ENHANCED_WP_ADMIN_ASSETS', plugin_dir_url(__FILE__) . 'dist/');
 define('ENHANCED_WP_ADMIN_RESOURCES', __DIR__ . '/resources/');
 
-
-require_once __DIR__ . '/vendor/composer/autoload.php';
+// Use composer to autoload our classes
+require_once __DIR__ . '/vendor/autoload.php';
 
 new \EnhancedWPAdmin\Init();
