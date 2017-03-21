@@ -23,7 +23,6 @@ class Dashboard
 		// Redirect away from dashboard
 		add_action('load-index.php', [$this, 'dashboardRedirect'], 10, 3);
 		add_action('login_redirect', [$this, 'dashboardRedirect'], 10, 3);
-		add_action('admin_menu', [$this, 'removeDashBoard']);
 	}
 
 	/**
@@ -38,12 +37,5 @@ class Dashboard
 		} else {
 			wp_redirect($adminUrl);
 		}
-	}
-
-	/**
-	 * Remove the dashboard page in the menu
-	 */
-	public function removeDashboard() {
-		remove_menu_page('index.php');
 	}
 }
