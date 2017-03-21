@@ -12,19 +12,22 @@
 
 #publishing-action
 {
-    background-color: $light-gray;
+    z-index: 9999;
+
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
-    z-index: 9999;
+
+    background-color: $light-gray;
 
     &.publishing-action--fixed
     {
-        border: 1px solid $medium-gray;
-        border-top: 0;
         position: fixed;
         top: 32px;
-        box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+
+        border: 1px solid $medium-gray;
+        border-top: 0;
+        box-shadow: 0 1px 1px rgba(0,0,0,.04);
     }
 
     .spinner
