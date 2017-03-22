@@ -36,19 +36,24 @@
 			var $this = $(this);
 			$this.appendTo($growl);
 
-			if (($this.hasClass('is-dismissible') && $this.hasClass('updated')) ||
-				$this.hasClass('acf-error-message')) {
-				setTimeout(function ()
-				{
-					$this.fadeTo(100, 0, function ()
-					{
-						$this.slideUp(100, function ()
-						{
-							$this.remove();
-						});
-					});
-				}, 3000);
-			}
+			dismiss($this);
 		});
 	}
+
+	function dismiss($this) {
+		if (($this.hasClass('is-dismissible') && $this.hasClass('updated')) ||
+			$this.hasClass('acf-error-message')) {
+			setTimeout(function ()
+			{
+				$this.fadeTo(100, 0, function ()
+				{
+					$this.slideUp(100, function ()
+					{
+						$this.remove();
+					});
+				});
+			}, 3000);
+		}
+	}
+
 })(jQuery);
