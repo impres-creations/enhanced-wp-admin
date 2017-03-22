@@ -13,7 +13,7 @@
 		var $deleteAction = $('#delete-action');
 
 		if ($publishingAction.length) {
-			if( $('body').hasClass('post-new-php') ) {
+			if( $('body').hasClass('post-new-php') || !$deleteAction.length ) {
 				$publishingContainer.addClass('major-publishing-actions--new');
 			}
 
