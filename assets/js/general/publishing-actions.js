@@ -13,11 +13,11 @@
 		var $deleteAction = $('#delete-action');
 
 		if ($publishingAction.length) {
-			if( $('body').hasClass('post-new-php') || !$deleteAction.length ) {
+			if ($('body').hasClass('post-new-php') || !$deleteAction.length) {
 				$publishingContainer.addClass('major-publishing-actions--new');
 			}
 
-			$publishingAction.outerWidth($publishingContainer.width());
+			$publishingAction.outerWidth($publishingContainer.outerWidth());
 
 			if ($(window).scrollTop() > ($publishingContainer.offset().top +
 				$deleteAction.height() - $('#wpadminbar').height())) {
@@ -41,8 +41,5 @@
 		{
 			fixPublishingAction();
 		});
-
 	});
-
-
 })(jQuery);

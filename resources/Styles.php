@@ -3,9 +3,9 @@
 namespace EnhancedWPAdmin;
 
 /**
- * Class EnhancedWPAdmin
+ * Class Styles
  *
- * The Class that makes the magic.
+ * To really improve the UI / UX, we do really need to teach WordPress some styling.
  */
 class Styles
 {

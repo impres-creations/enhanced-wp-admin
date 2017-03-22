@@ -3,9 +3,10 @@
 namespace EnhancedWPAdmin;
 
 /**
- * Class EnhancedComments
+ * Class Comments
  *
- * Comments are mostly spamming our websites. Not a lot of WordPress sites use comments, so we're disabling them.
+ * Comments are mostly for russian spam.
+ * We don't need viagra, so we're disabling them.
  */
 class Comments
 {

@@ -3,9 +3,10 @@
 namespace EnhancedWPAdmin;
 
 /**
- * Class EnhancedMetaBoxes
+ * Class Meta Boxes
  *
- * this class is responsible for removing / editing the meta boxes
+ * This class is responsible for removing / editing the meta boxes.
+ * Because there's just to many of them.
  */
 class MetaBoxes
 {

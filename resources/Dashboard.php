@@ -3,7 +3,7 @@
 namespace EnhancedWPAdmin;
 
 /**
- * Class EnhancedDashboard
+ * Class Dashboard
  *
  * This class is like the EPA in Trump's administration.
  * It's awesome, but we just don't believe in it, so we're getting rid of it.

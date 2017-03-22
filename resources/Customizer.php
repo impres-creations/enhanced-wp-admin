@@ -3,9 +3,9 @@
 namespace EnhancedWPAdmin;
 
 /**
- * Class EnhancedComments
+ * Class Customizer
  *
- * Comments are mostly spamming our websites. Not a lot of WordPress sites use comments, so we're disabling them.
+ * Clients don't need this. We professionals take care of all the sweet stuff ;)
  */
 class Customizer
 {

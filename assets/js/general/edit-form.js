@@ -7,6 +7,25 @@
 	"use strict";
 
 	/**
+	 * Calculate the height of the container and determine the position for sticky
+	 */
+	function calculateHeight()
+	{
+		var $stickyContainer = $('.sticky-container');
+
+		$stickyContainer.each(function ()
+		{
+			if ($(this).height() > $(window).height()) {
+				$(this).css({
+					top: 'calc(100vh - ' + $(this).outerHeight() + 'px)'
+				});
+			} else {
+				$(this).removeAttr('style');
+			}
+		});
+	}
+
+	/**
 	 * Edit the entire WordPress form html on post or post-new.
 	 * Because we want to use flexbox and position sticky to make some nice effects
 	 */
@@ -37,28 +56,6 @@
 			{
 				calculateHeight();
 			});
-
 		}
 	});
-
-	/**
-	 * Calculate the height of the container and determine the position for sticky
-	 */
-	function calculateHeight()
-	{
-		var $stickyContainer = $('.sticky-container');
-
-		$stickyContainer.each(function ()
-		{
-			if ($(this).height() > $(window).height()) {
-				$(this).css({
-					top: 'calc(100vh - ' + $(this).outerHeight() + 'px)'
-				});
-			} else {
-				$(this).removeAttr('style');
-			}
-		});
-	}
-
-
 })(jQuery);

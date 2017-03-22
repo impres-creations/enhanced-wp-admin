@@ -1,0 +1,101 @@
+.notice,
+#update-nag,
+.update-nag {
+	display: block;
+	color: $white;
+
+	a {
+		color: $white;
+	}
+}
+
+.notice-dismiss,
+.acf-icon.-cancel {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 9px;
+	right: 12px;
+	background: transparent !important;
+
+	&:before {
+		z-index: 1;
+		transition: color .15s $curve-standard;
+		content: "\f153";
+		display: block;
+		font: normal 16px/20px dashicons;
+		speak: none;
+		height: 20px;
+		text-align: center;
+		width: 20px;
+		-webkit-font-smoothing: antialiased;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&:hover:before,
+	&:active:before,
+	&:focus:before {
+		color: $white !important;
+	}
+
+	&:after {
+		z-index: 0;
+		position: absolute;
+		display: block;
+		content: '';
+		background-color: $white;
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: background-color .15s $curve-standard;
+	}
+
+	&:hover:after,
+	&:active:after,
+	&:focus:after {
+		background-color: transparent;
+	}
+}
+
+div.updated,
+.notice-success {
+	background-color: $success-color;
+	border-color: $success-color-dark;
+
+	.notice-dismiss,
+	.acf-icon.-cancel {
+		color: $success-color;
+
+		&:before {
+			color: $success-color;
+		}
+	}
+}
+
+.notice-error,
+div.error,
+.acf-error-message {
+	background-color: $error-color;
+	border-color: $error-color-dark;
+
+	.notice-dismiss,
+	.acf-icon.-cancel {
+		color: $error-color;
+		&:before {
+			color: $error-color;
+		}
+	}
+}
+
+#update-nag,
+.update-nag,
+.notice-warning {
+	background-color: $warning-color;
+	border-color: $warning-color-dark;
+}

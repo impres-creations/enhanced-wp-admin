@@ -17,5 +17,6 @@ class Init
 		new MetaBoxes();
 		new Menu();
 		new Styles();
+		new Help();
 	}
 }

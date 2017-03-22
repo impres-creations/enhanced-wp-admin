@@ -1,0 +1,15 @@
+.growl {
+	position: fixed;
+	top: 52px;
+	right: 20px;
+	z-index: 9999;
+	width: 280px;
+	pointer-events: none;
+
+	.notice,
+	.acf-error-message,
+	.update-nag {
+		pointer-events: initial;
+		margin: 0 0 10px 0;
+	}
+}
