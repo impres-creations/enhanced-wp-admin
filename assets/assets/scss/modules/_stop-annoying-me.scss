@@ -1,0 +1,29 @@
+/*
+ * Come on plugin's. Why you do this!? Me no like.
+ * Don't misuse the my WordPress admin for advertising please ...
+ */
+
+// Yoast is annoying
+.yoast-ga-banners,
+.wpseo-admin-page #sidebar-container,
+#breadcrumbs-tab
+{
+    display: none !important;
+}
+
+#yoast-ga-wrapper
+{
+    width: 100%;
+}
+
+// WPMU-DEV is annoying
+.frash-notice,
+.wp-smush-update-info {
+    display: none;
+}
+
+// Gravityforms is not really annoying.
+// But I just don't want to see available updates as a notice.
+#gf_dashboard_message {
+    display: none;
+}

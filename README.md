@@ -8,7 +8,8 @@ At the moment the plug-in is still in development and it is a take it all packag
 ### Roadmap
 
 - Return filters
-- Options page
-- Notices & Errors improvements
-- We don't need no help
+- Options page for the plug-in
+- Notices & Errors improvements (Growl)
 - Adding content blocks makes things shift. (overflow)
+- Add snooze & update admin to growl
+- Hide annoying notices.
