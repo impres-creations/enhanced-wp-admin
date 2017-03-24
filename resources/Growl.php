@@ -17,7 +17,6 @@ class Growl
 	private function init()
 	{
 		add_action('admin_enqueue_scripts', [$this, 'loadStyles']);
-		add_action('wp_footer', [$this, 'hideSnoozedNotices']);
 		add_action('wp_ajax_wp-growl-snooze-notice', [$this, 'snoozeNotice']);
 	}
 
