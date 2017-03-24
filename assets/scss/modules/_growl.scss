@@ -1,20 +1,18 @@
-.growl
-{
-    position: fixed;
-    z-index: 201;
-    top: 52px;
-    right: 20px;
+.growl {
+	position: fixed;
+	z-index: 201;
+	top: 52px;
+	right: 20px;
 
-    width: 280px;
+	width: 280px;
 
-    pointer-events: none;
+	pointer-events: none;
 
-    .notice,
-    .acf-error-message,
-    .update-nag
-    {
-        margin: 0 0 10px 0;
+	.notice,
+	.acf-error-message,
+	.update-nag {
+		margin: 0 0 10px 0;
 
-        pointer-events: initial;
-    }
+		pointer-events: initial;
+	}
 }
