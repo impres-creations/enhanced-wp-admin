@@ -17,7 +17,7 @@
 		{
 			if ($(this).height() > $(window).height()) {
 				$(this).css({
-					top: 'calc(100vh - ' + $(this).outerHeight() + 'px)'
+					top: 'calc(100vh - ' + $(this).outerHeight() + 20 + 'px)'
 				});
 			} else {
 				$(this).removeAttr('style');
