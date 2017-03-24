@@ -30,14 +30,5 @@ class Styles
 
 		wp_enqueue_script('enhanced-admin-js', ENHANCED_WP_ADMIN_ASSETS . 'js/general.min.js', ['jquery'],
 			ENHANCED_WP_ADMIN_VERSION, true);
-
-		wp_enqueue_script('jquery-initialize', ENHANCED_WP_ADMIN_ASSETS . 'js/jquery-initialize.min.js', ['jquery'],
-			ENHANCED_WP_ADMIN_VERSION, true);
-
-		wp_enqueue_style('growl-css', ENHANCED_WP_ADMIN_ASSETS . 'css/growl.min.css', false,
-			ENHANCED_WP_ADMIN_VERSION);
-
-		wp_enqueue_script('growl-js', ENHANCED_WP_ADMIN_ASSETS . 'js/growl.min.js', ['jquery', 'jquery-initialize'],
-			ENHANCED_WP_ADMIN_VERSION, true);
 	}
 }

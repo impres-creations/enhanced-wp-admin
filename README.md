@@ -8,8 +8,6 @@ At the moment the plug-in is still in development and it is a take it all packag
 ### Roadmap
 
 - Return filters
-- Options page for the plug-in
-- Notices & Errors improvements (Growl)
-- Adding content blocks makes things shift. (overflow)
-- Add snooze & message admin to growl
-- Hide annoying notices.
+- Options page
+- Notices & Errors improvements
+- Build in grunt-wp-deploy

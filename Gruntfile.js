@@ -47,6 +47,14 @@ module.exports = function (grunt)
 					'<%= dir.dist %>/js/general.min.js': [
 						'<%= dir.assets %>/js/general/*.js',
 						'!<%= dir.assets %>/js/general/*.min.js'
+					],
+					'<%= dir.dist %>/js/growl.min.js': [
+						'<%= dir.assets %>/js/growl/*.js',
+						'!<%= dir.assets %>/js/growl/*.min.js'
+					],
+					'<%= dir.dist %>/js/jquery-initialize.min.js': [
+						'<%= dir.assets %>/js/jquery-initialize/*.js',
+						'!<%= dir.assets %>/js/jquery-initialize/*.min.js'
 					]
 				}
 			}
