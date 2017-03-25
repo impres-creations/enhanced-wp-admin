@@ -37,7 +37,7 @@ class Growl
 
 	public function snoozedNotices()
 	{
-		$notices = (array)get_option('wp-growl-snoozed-notices', []);
+		$notices = get_user_meta(get_current_user_id(), 'wp-growl-snoozed-notices', true);
 		$oldNotices = $notices;
 
 		if (!empty($notices)) {
@@ -51,7 +51,7 @@ class Growl
 			}
 
 			if ($oldNotices !== $notices) {
-				update_option('wp-growl-snoozed-notices', (array)$notices);
+				update_user_meta(get_current_user_id(), 'wp-growl-snoozed-notices', $notices);
 			}
 		}
 
@@ -72,17 +72,18 @@ class Growl
 			);
 		}
 
-		$notices = (array)get_option('wp-growl-snoozed-notices', []);
+		$notices = get_user_meta(get_current_user_id(), 'wp-growl-snoozed-notices', true);
+
+		tp($notices);
 
 		$notices[$_POST['notice']] = $_POST['wakeup'];
 
-		update_option('wp-growl-snoozed-notices', $notices);
+		update_user_meta(get_current_user_id(), 'wp-growl-snoozed-notices', $notices);
 
 		die(
 		json_encode(
 			[
 				'success' => true,
-				'message' => get_option('wp-growl-snoozed-notices', [])
 			]
 		)
 		);
