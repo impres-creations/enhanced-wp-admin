@@ -74,8 +74,6 @@ class Growl
 
 		$notices = get_user_meta(get_current_user_id(), 'wp-growl-snoozed-notices', true);
 
-		tp($notices);
-
 		$notices[$_POST['notice']] = $_POST['wakeup'];
 
 		update_user_meta(get_current_user_id(), 'wp-growl-snoozed-notices', $notices);
