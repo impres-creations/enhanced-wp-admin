@@ -16,8 +16,9 @@
 
 // WPMU-DEV is annoying
 .frash-notice,
-.wp-smush-update-info {
-	display: none;
+//.wp-smush-update-info,
+.smush-notice {
+	display: none !important;
 }
 
 // Gravityforms is not really annoying.

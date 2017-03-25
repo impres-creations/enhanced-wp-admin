@@ -32,7 +32,8 @@
 	function growl()
 	{
 		var $growl = $('.growl');
-		var $notice = $('.notice:not(.hidden), #post > .acf-error-message, .update-nag');
+		var $notice = $(
+			'.notice:not(.hidden, .inline), #post > .acf-error-message, .update-nag, .message:not(.hidden, .inline), .updated:not(.hidden, .inline), .error:not(.hidden, .inline)');
 
 		$notice.each(function ()
 		{
@@ -42,10 +43,10 @@
 				$this.remove();
 			} else {
 				$this.appendTo($growl);
-			}
 
-			dismiss($this);
-			snooze($this);
+				dismiss($this);
+				snooze($this);
+			}
 		});
 	}
 
@@ -56,8 +57,9 @@
 	 */
 	function dismiss($this)
 	{
-		if (($this.hasClass('is-dismissible') && $this.hasClass('updated')) ||
+		if (($this.hasClass('is-dismissible') && $this.hasClass('updated') && $this.hasClass('notice')) ||
 			$this.hasClass('acf-error-message')) {
+
 			setTimeout(function ()
 			{
 				hideNotice($this);
@@ -72,7 +74,9 @@
 	 */
 	function snooze($this)
 	{
-		if (!$this.hasClass('is-dismissible') && !$this.hasClass('acf-error-message')) {
+		if (!$this.hasClass('is-dismissible') && !$this.hasClass('acf-error-message') && !$this.hasClass(
+				'otgs-is-dismissible')) {
+
 			$this.append('<button class="notice-snooze notice-dismiss"></button>');
 			$this.append('<ul class="notice-snooze-menu hidden">' +
 				'<li data-hours="1">Remind me in 1 Hour</li>' +
@@ -84,7 +88,7 @@
 
 		$this.find('.notice-snooze').on('click', function ()
 		{
-			$('.notice-snooze-menu').toggleClass('hidden');
+			$this.find('.notice-snooze-menu').toggleClass('hidden');
 		});
 
 		$this.find('.notice-snooze-menu li').on('click', function ()
@@ -95,7 +99,7 @@
 				data: {
 					action: 'wp-growl-snooze-notice',
 					notice: $this.clone().find('.notice-snooze-menu').remove().end().text().trim(), // our notice (recognized in the most ugly way possible, because too often there's no ID)
-					wakeup: Math.floor(Date.now() / 1000) + 60 * $(this).data('hours') // your new value variable
+					wakeup: Math.floor(Date.now() / 1000) + 60 * 60 * $(this).data('hours') // your new value variable
 				},
 				dataType: 'json'
 			});

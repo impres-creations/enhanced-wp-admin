@@ -7,13 +7,20 @@
 	}
 }
 
-body:not(.post-new-php) #delete-action {
-	float: right;
-	padding: 10px 10px 0;
+body:not(.post-new-php) {
+	#purge-action {
+		float: left;
+		padding: 10px 10px 0;
+	}
+
+	#delete-action {
+		float: right;
+		padding: 10px 10px 0;
+	}
 }
 
 #publishing-action {
-	z-index: 200;
+	z-index: 300;
 
 	box-sizing: border-box;
 	width: 100%;
@@ -23,7 +30,7 @@ body:not(.post-new-php) #delete-action {
 
 	&.publishing-action--fixed {
 		position: fixed;
-		top: 32px;
+		top: 30px;
 
 		border: 1px solid $medium-gray;
 		border-top: 0;

@@ -15,12 +15,13 @@
 
 		$stickyContainer.each(function ()
 		{
-			if ($(this).height() > $(window).height()) {
-				$(this).css({
-					top: 'calc(100vh - ' + $(this).outerHeight() + 20 + 'px)'
+			var $this = $(this);
+			if ($this.height() > $(window).height()) {
+				$this.css({
+					top: 'calc(100vh - ' + ( $(this).outerHeight() + 20) + 'px)'
 				});
 			} else {
-				$(this).removeAttr('style');
+				$this.removeAttr('style');
 			}
 		});
 	}

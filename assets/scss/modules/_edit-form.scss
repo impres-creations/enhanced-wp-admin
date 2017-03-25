@@ -25,7 +25,7 @@ body.flex {
 	#post-body-content,
 	#postbox-container-1,
 	#postbox-container-2 {
-		float: none;
+		float: none !important;
 	}
 
 	.sticky-container {

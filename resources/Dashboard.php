@@ -21,8 +21,8 @@ class Dashboard
 	private function init()
 	{
 		// Redirect away from dashboard
-		add_action('load-index.php', [$this, 'dashboardRedirect'], 10, 3);
-		add_action('login_redirect', [$this, 'dashboardRedirect'], 10, 3);
+//		add_action('load-index.php', [$this, 'dashboardRedirect'], 10, 3);
+//		add_action('login_redirect', [$this, 'dashboardRedirect'], 10, 3);
 	}
 
 	/**
