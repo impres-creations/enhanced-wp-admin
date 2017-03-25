@@ -13,4 +13,4 @@ At the moment the plug-in is still in development and it is a take it all packag
 - Build in grunt-wp-deploy
 - Options to reset growl
 - Responsive improvements
-- Usermeta growl instead of optioon
+- Only build the autoloader to the build
