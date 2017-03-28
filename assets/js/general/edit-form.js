@@ -14,19 +14,22 @@
 	{
 		var $stickyContainer = $('.sticky-container');
 
-		$stickyContainer.each(function ()
-		{
-			var $this = $(this);
+		if ($(window).width() >= 783) {
 
-			// Check if the element is bigger in height than our window.
-			if ($this.height() > $(window).height()) {
-				$this.css({
-					top: 'calc(100vh - ' + ( $(this).outerHeight() + 20) + 'px)'
-				});
-			} else {
-				$this.removeAttr('style');
-			}
-		});
+			$stickyContainer.each(function ()
+			{
+				var $this = $(this);
+
+				// Check if the element is bigger in height than our window.
+				if ($this.height() > $(window).height()) {
+					$this.css({
+						top: 'calc(100vh - ' + ( $(this).outerHeight() + 20) + 'px)'
+					});
+				} else {
+					$this.removeAttr('style');
+				}
+			});
+		}
 	}
 
 	/**
@@ -64,6 +67,11 @@
 			});
 
 			$(window).on('scroll', function ()
+			{
+				stickyPosition();
+			});
+
+			$(window).on('resize', function ()
 			{
 				stickyPosition();
 			});

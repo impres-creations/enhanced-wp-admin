@@ -14,7 +14,6 @@
 
 // Don't do this on new, because they're only half there. Wordpress doesn't properly hide it in the php code.
 body:not(.post-new-php) {
-
 	// Support for WP Rocket pure button
 	#purge-action {
 		float: left;
