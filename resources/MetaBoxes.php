@@ -12,19 +12,31 @@ class MetaBoxes
 {
 	public function __construct()
 	{
-		$this->init();
+		$this->addHooks();
 	}
 
 	/**
 	 * Make sure all hooks are being executed.
 	 */
-	private function init()
+	private function addHooks()
 	{
-		add_action('do_meta_boxes', [$this, 'removeMetaBoxes']);
-
 		if (class_exists('WPSEO_Metabox')) {
 			add_filter('wpseo_metabox_prio', [$this, 'changeWPSeoPriority'], 10);
 		}
+
+		add_action('do_meta_boxes', [$this, 'removeMetaBoxes']);
+	}
+
+	/**
+	 * Move the WP Seo Meta Box down
+	 *
+	 * @param $priority
+	 * @return string
+	 */
+	public function changeWPSeoPriority($priority)
+	{
+		$priority = 'low';
+		return $priority;
 	}
 
 	/**
@@ -63,17 +75,5 @@ class MetaBoxes
 		if (function_exists('relevanssi_premium_init')) {
 			remove_meta_box('relevanssi_hidebox', $screen, 'advanced');
 		}
-	}
-
-	/**
-	 * Move the WP Seo Meta Box down
-	 *
-	 * @param $priority
-	 * @return string
-	 */
-	public function changeWPSeoPriority($priority)
-	{
-		$priority = 'low';
-		return $priority;
 	}
 }

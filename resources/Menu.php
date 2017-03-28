@@ -15,17 +15,17 @@ class Menu
 {
 	public function __construct()
 	{
-		$this->init();
+		$this->addHooks();
+		$this->addAdminMenuSeperator();
+		$this->changeAdminMenuItems();
 	}
 
 	/**
 	 * Make sure all hooks are being executed.
 	 */
-	private function init()
+	private function addHooks()
 	{
 		add_action('wp_before_admin_bar_render', [$this, 'removeAdminBarItems']);
-		add_action('admin_init', [$this, 'addAdminMenuSeperator'], 11);
-		add_action('admin_init', [$this, 'changeAdminMenuItems'], 11);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Menu
 		global $menu;
 
 
-		unset($menu[4],$menu[30], $menu[59], $menu[99]); // Remove the seperators so we can reset the count.
+		unset($menu[4], $menu[30], $menu[59], $menu[99]); // Remove the seperators so we can reset the count.
 		$seperators = [44.9, 49.9, 59.9];
 
 		foreach ($seperators as $key => $seperator) {
@@ -71,28 +71,6 @@ class Menu
 
 		foreach ($menu as $key => $item) {
 			switch ($item[2]) {
-				case 'index.php': // Remove the dashboard but keep the updates.
-					foreach ($submenu['index.php'] as $subItem) {
-						if ($subItem[2] === 'update-core.php') {
-							$submenu['options-general.php'][0.1] = $subItem;
-
-							ksort($submenu['options-general.php']);
-						}
-					}
-					unset($menu[$key]);
-					break;
-				case 'themes.php': // Remove the appearence menu item and add the menus in the main menu
-					foreach ($submenu['themes.php'] as $subItem) {
-						if ($subItem[2] === 'nav-menus.php') {
-							$menu[45] = $subItem;
-							$menu[45][] = '';
-							$menu[45][] = 'menu-top menu-icon-appearance menu-top-first';
-							$menu[45][] = 'menu-appearance';
-							$menu[45][] = 'dashicons-menu';
-						}
-					}
-					unset($menu[$key]);
-					break;
 				case 'upload.php': // Change the position of media
 					$this->adminMenuCount($key, 46);
 					break;
@@ -126,5 +104,6 @@ class Menu
 		$wp_admin_bar->remove_menu('search');
 		$wp_admin_bar->remove_node('themes');
 		$wp_admin_bar->remove_node('menus');
+		$wp_admin_bar->remove_node('view-site');
 	}
 }

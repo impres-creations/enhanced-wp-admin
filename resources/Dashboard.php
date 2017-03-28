@@ -12,17 +12,38 @@ class Dashboard
 {
 	public function __construct()
 	{
-		$this->init();
+		$this->addHooks();
+		$this->changeMenuItems();
 	}
 
 	/**
 	 * Make sure all hooks are being executed.
 	 */
-	private function init()
+	private function addHooks()
 	{
-		// Redirect away from dashboard
-		add_action('load-index.php', [$this, 'dashboardRedirect'], 10, 3);
-		add_action('login_redirect', [$this, 'dashboardRedirect'], 10, 3);
+		add_action('load-index.php', [$this, 'dashboardRedirect'], 20, 3);
+		add_action('login_redirect', [$this, 'dashboardRedirect'], 20, 3);
+		add_action('wp_before_admin_bar_render', [$this, 'removeAdminBarItems']);
+	}
+
+	/**
+	 * Change the menu items
+	 */
+	private function changeMenuItems()
+	{
+		global $submenu;
+
+		// Remove the dashboard from the menu
+		remove_menu_page('index.php');
+
+		// Move the updates submenu to the settings
+		foreach ($submenu['index.php'] as $subItem) {
+			if ($subItem[2] === 'update-core.php') {
+				$submenu['options-general.php'][0.1] = $subItem;
+
+				ksort($submenu['options-general.php']);
+			}
+		}
 	}
 
 	/**
@@ -46,11 +67,6 @@ class Dashboard
 	{
 		global $wp_admin_bar;
 
-		$wp_admin_bar->remove_menu('wp-logo');
-		$wp_admin_bar->remove_menu('search');
-
 		$wp_admin_bar->remove_node('dashboard');
-		$wp_admin_bar->remove_node('themes');
-		$wp_admin_bar->remove_node('menus');
 	}
 }

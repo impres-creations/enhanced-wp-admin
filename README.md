@@ -7,6 +7,5 @@ At the moment the plug-in is still in development and it is a take it all packag
 
 ### Roadmap
 
-- Return filters
 - Options page
-- Responsive improvements
+- Menu item menu moet beter

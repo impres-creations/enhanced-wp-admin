@@ -6,19 +6,20 @@ module.exports = function (grunt)
 	grunt.config.init({
 		dir: {
 			assets: 'assets',
-			dist: 'dist',
+			images: 'images',
+			scss: 'scss',
+			css: 'css',
+			js: 'js',
 			resources: 'resources'
 		},
 
 		url: {
-			content: '/content',
-			themes: '<%= url.content %>/themes',
-			theme: '<%= url.themes %>/<%= theme %>'
+			content: '/content'
 		},
 
 		js: {
 			plugins: [
-				'<%= dir.assets %>/**/*.js'
+				'<%= dir.js %>/**/*.js'
 			]
 		},
 
@@ -35,26 +36,18 @@ module.exports = function (grunt)
 				files: [
 					{
 						expand: true,
-						cwd: '<%= dir.assets %>/js',
+						cwd: '<%= dir.js %>',
 						src: ['*.js', '!*.min.js'],
-						dest: '<%= dir.dist %>/js',
+						dest: '<%= dir.js %>',
 						ext: '.min.js'
 					}
 				]
 			},
 			dist: {
 				files: {
-					'<%= dir.dist %>/js/general.min.js': [
-						'<%= dir.assets %>/js/general/*.js',
-						'!<%= dir.assets %>/js/general/*.min.js'
-					],
-					'<%= dir.dist %>/js/growl.min.js': [
-						'<%= dir.assets %>/js/growl/*.js',
-						'!<%= dir.assets %>/js/growl/*.min.js'
-					],
-					'<%= dir.dist %>/js/jquery-initialize.min.js': [
-						'<%= dir.assets %>/js/jquery-initialize/*.js',
-						'!<%= dir.assets %>/js/jquery-initialize/*.min.js'
+					'<%= dir.js %>/enhanced-wp-admin.min.js': [
+						'<%= dir.js %>/general/*.js',
+						'!<%= dir.js %>/general/*.min.js'
 					]
 				}
 			}
@@ -64,9 +57,9 @@ module.exports = function (grunt)
 				files: [
 					{
 						expand: true,
-						cwd: "<%= dir.assets %>/scss",
+						cwd: "<%= dir.scss %>",
 						src: ["**/*.scss"],
-						dest: "<%= dir.dist %>/css",
+						dest: "<%= dir.css %>",
 						ext: '.min.css'
 					}
 				],
@@ -87,7 +80,7 @@ module.exports = function (grunt)
 						require('csswring')
 					]
 				},
-				src: "<%= dir.dist %>/css/**/*.css"
+				src: "<%= dir.css %>/**/*.css"
 			},
 			sass: {
 				options: {
@@ -98,7 +91,7 @@ module.exports = function (grunt)
 						)
 					]
 				},
-				src: "<%= dir.assets %>/scss/**/*.scss"
+				src: "<%= dir.scss %>/**/*.scss"
 			}
 		},
 		csscomb: {
@@ -107,9 +100,9 @@ module.exports = function (grunt)
 			},
 			dynamic_mappings: {
 				expand: true,
-				cwd: '<%= dir.assets %>/scss/',
+				cwd: '<%= dir.scss %>/',
 				src: ['**/*.scss'],
-				dest: '<%= dir.assets %>/scss/',
+				dest: '<%= dir.scss %>/',
 				ext: '.scss'
 			}
 		},
@@ -118,20 +111,8 @@ module.exports = function (grunt)
 				compress: true
 			},
 			files: {
-				src: "<%= dir.dist %>/css/style.min.css",
-				dest: "<%= dir.dist %>/css/style.min.css"
-			}
-		},
-		copy: {
-			main: {
-				files: [
-					{
-						expand: true,
-						cwd: '<%= dir.assets %>/images',
-						src: '**',
-						dest: '<%= dir.dist %>/images/'
-					}
-				]
+				src: "<%= dir.css %>/enhanced-wp-admin.min.css",
+				dest: "<%= dir.css %>/enhanced-wp-admin.min.css"
 			}
 		},
 		watch: {
@@ -141,8 +122,7 @@ module.exports = function (grunt)
 
 			sass: {
 				files: [
-					'<%= dir.assets %>/scss/**/*.{scss,sass}',
-					'<%= dir.assetsadmin %>/scss/**/*.{scss,sass}'
+					'<%= dir.scss %>/**/*.{scss,sass}',
 				],
 				tasks: ['sass', 'postcss:css']
 			},
@@ -160,11 +140,11 @@ module.exports = function (grunt)
 	});
 
 	grunt.registerTask('default',
-		['csscomb', 'postcss:sass', 'sass', 'postcss:css', 'uglify', 'merge_media', 'copy', 'watch']);
+		['csscomb', 'postcss:sass', 'sass', 'postcss:css', 'uglify', 'merge_media', 'watch']);
 
 	grunt.registerTask('optimize', ['postcss:sass', 'uglify']);
 
-	grunt.registerTask('build', ['sass', 'postcss:css', 'merge_media', 'uglify', 'copy']);
+	grunt.registerTask('deploy', ['wp_deploy']);
 
 	// Load all the npm tasks which starts with "grunt-"
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);

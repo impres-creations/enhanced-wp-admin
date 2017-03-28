@@ -14,13 +14,13 @@ class Help
 {
 	public function __construct()
 	{
-		$this->init();
+		$this->addHooks();
 	}
 
 	/**
 	 * Make sure all hooks are being executed.
 	 */
-	public function init()
+	private function addHooks()
 	{
 		add_filter('contextual_help', [$this, 'removeHelpTabs'], 100, 3);
 	}
