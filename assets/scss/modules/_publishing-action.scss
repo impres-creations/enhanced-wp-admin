@@ -26,7 +26,8 @@ body:not(.post-new-php) {
 	}
 }
 
-#publishing-action {
+#publishing-action,
+.publishing-action {
 	z-index: 300;
 
 	box-sizing: border-box;

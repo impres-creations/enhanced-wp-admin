@@ -20,3 +20,8 @@
 .smush-notice {
 	display: none !important;
 }
+
+// WPMU-DEV, what are you changing the background for?!
+html.wpmud-html {
+	background-color: transparent;
+}
