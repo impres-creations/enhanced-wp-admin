@@ -17,7 +17,6 @@ class Init
 		new MetaBoxes();
 		new Menu();
 		new Styles();
-		new Growl();
 		new Help();
 	}
 }

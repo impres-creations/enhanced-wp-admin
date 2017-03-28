@@ -9,8 +9,4 @@ At the moment the plug-in is still in development and it is a take it all packag
 
 - Return filters
 - Options page
-- Notices & Errors improvements
-- Build in grunt-wp-deploy
-- Options to reset growl
 - Responsive improvements
-- Only build the autoloader to the build

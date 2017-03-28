@@ -3,7 +3,7 @@
  * Don't misuse the my WordPress admin for advertising please ...
  */
 
-// Yoast is annoying
+// WPMU-DEV is abusing the admin for advertisements
 .yoast-ga-banners,
 .wpseo-admin-page #sidebar-container,
 #breadcrumbs-tab {
@@ -14,15 +14,9 @@
 	width: 100%;
 }
 
-// WPMU-DEV is annoying
+// WPMU-DEV is abusing the admin notices for advertisements
 .frash-notice,
-//.wp-smush-update-info,
+.wp-smush-update-info,
 .smush-notice {
 	display: none !important;
-}
-
-// Gravityforms is not really annoying.
-// But I just don't want to see available updates as a notice.
-#gf_dashboard_message {
-	display: none;
 }

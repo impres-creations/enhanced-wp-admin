@@ -24,6 +24,7 @@ class Comments
 		add_action('do_meta_boxes', [$this, 'removeMetaBoxes']);
 		add_action('init', [$this, 'removeCommentsForDefaultPostTypes']);
 		add_filter('wp_headers', [$this, 'removeXPingback']);
+		add_action('wp_before_admin_bar_render', [$this, 'removeAdminBarItems']);
 	}
 
 	/**
@@ -71,5 +72,15 @@ class Comments
 		unset($headers['X-Pingback']);
 
 		return $headers;
+	}
+
+	/**
+	 * Remove default admin bar menu items.
+	 */
+	public function removeAdminBarItems()
+	{
+		global $wp_admin_bar;
+
+		$wp_admin_bar->remove_menu('comments');
 	}
 }

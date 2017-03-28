@@ -23,7 +23,6 @@ class Menu
 	 */
 	private function init()
 	{
-		// Change the menu
 		add_action('wp_before_admin_bar_render', [$this, 'removeAdminBarItems']);
 		add_action('admin_init', [$this, 'addAdminMenuSeperator'], 11);
 		add_action('admin_init', [$this, 'changeAdminMenuItems'], 11);
@@ -124,7 +123,6 @@ class Menu
 		global $wp_admin_bar;
 
 		$wp_admin_bar->remove_menu('wp-logo');
-		$wp_admin_bar->remove_menu('comments');
 		$wp_admin_bar->remove_menu('customize');
 		$wp_admin_bar->remove_menu('search');
 
