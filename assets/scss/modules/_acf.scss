@@ -1,3 +1,6 @@
+/*
+ * Hide ACF labels if there is only 1 field in the group.
+ */
 body:not(.post-type-acf-field-group) .acf-field:first-of-type:last-of-type > .acf-label {
 	display: none;
 }

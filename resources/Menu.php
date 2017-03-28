@@ -123,10 +123,7 @@ class Menu
 		global $wp_admin_bar;
 
 		$wp_admin_bar->remove_menu('wp-logo');
-		$wp_admin_bar->remove_menu('customize');
 		$wp_admin_bar->remove_menu('search');
-
-		$wp_admin_bar->remove_node('dashboard');
 		$wp_admin_bar->remove_node('themes');
 		$wp_admin_bar->remove_node('menus');
 	}

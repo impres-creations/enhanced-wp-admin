@@ -1,13 +1,21 @@
+/*
+ * When using ACF alot, sometimes you get an overload of blue buttons.
+ * To make our publishing actions more noticable we'll make the publish button green and fixed!
+ */
 #major-publishing-actions {
 	height: 105px;
 	padding: 0;
 
+	// Different height when new (no purge & delete action
 	&.major-publishing-actions--new {
 		height: 66px;
 	}
 }
 
+// Don't do this on new, because they're only half there. Wordpress doesn't properly hide it in the php code.
 body:not(.post-new-php) {
+
+	// Support for WP Rocket pure button
 	#purge-action {
 		float: left;
 		padding: 10px 10px 0;
@@ -42,6 +50,7 @@ body:not(.post-new-php) {
 
 		margin-top: 13px;
 
+		// New spinner with green background, because gifs don't deal with changing background color very well.
 		background-image: url('../images/spinner.gif');
 
 		@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
@@ -63,10 +72,10 @@ body:not(.post-new-php) {
 
 		&.disabled,
 		&.button-primary-disabled {
-			border-color: $success-color-dark !important;
-			background: $success-color !important;
+			border-color: $success-color-dark !important; // Important because WP doesn't like us changing this
+			background: $success-color !important; // Important because WP doesn't like us changing this
 
-			color: rgba($white, .5) !important;
+			color: rgba($white, .5) !important; // Important because WP doesn't like us changing this
 		}
 
 		&.focus,

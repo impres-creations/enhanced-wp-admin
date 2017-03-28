@@ -7,7 +7,7 @@ namespace EnhancedWPAdmin;
  *
  * To really improve the UI / UX, we do really need to teach WordPress some styling.
  */
-class Styles
+class UI
 {
 	public function __construct()
 	{

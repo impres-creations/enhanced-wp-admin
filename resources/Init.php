@@ -16,7 +16,7 @@ class Init
 		new Dashboard();
 		new MetaBoxes();
 		new Menu();
-		new Styles();
+		new UI();
 		new Help();
 	}
 }
